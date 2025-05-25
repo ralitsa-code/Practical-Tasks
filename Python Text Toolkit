@@ -1,0 +1,108 @@
+# Step 1: Display a menu to the user
+print("🧠 Welcome to the Text Transformation Toolkit!")
+print("Choose a transformation:")
+print("1. Reverse Text")
+print("2. Convert to Uppercase")
+print("3. Convert to Lowercase")
+print("4. Title Case")
+print("5. Count Vowels")
+print("6. Remove All Spaces")
+print("7. Replace Vowels with '*'")
+print("8. Check if Palindrome")
+print("9. Word Frequency Counter")
+
+# Step 2: Get the user's choice
+choice = int(input("Enter the number corresponding to your choice: "))
+
+# Step 3: Get the input string
+text = input("Enter the text: ")
+
+
+# Step 4: Apply the selected transformation
+if choice == 1:
+    reversed_text = text[::-1]
+    print(reversed_text)
+
+# TODO: Reverse the text using slicing or a loop
+
+
+elif choice == 2:
+    uppercase_text = text.upper()
+    print(uppercase_text)
+
+# TODO: Convert the text to uppercase using string methods
+
+
+elif choice == 3:
+    lowercase_text = text.lower()
+    print(lowercase_text)
+ 
+# TODO: Convert the text to lowercase using string methods
+
+
+elif choice == 4:
+    title_text = text.title()
+    print(title_text)
+ 
+# TODO: Convert the text to title case (capitalize each word)
+
+
+elif choice == 5:
+    vowels = "aeiou"
+    count = 0
+    for character in text:
+        if character in vowels:
+            count += 1
+    print(count)
+   
+# TODO: Count how many vowels are in the text (a, e, i, o, u)
+
+
+elif choice == 6:
+    no_spaces = text.replace(" ", "")
+    print(no_spaces)
+    
+# TODO: Remove all spaces from the string using replace() or join()
+
+
+elif choice == 7:
+    vowels = "aeiou"
+    for character in text:
+        if character in vowels:
+            character = "*"
+        print(character, end="")
+    
+# TODO: Replace all vowels with "*" using a loop or comprehension
+
+
+elif choice == 8:
+    lowercase_text = text.lower()
+    no_spaces_lowercase_text = lowercase_text.replace(" ", "")
+    no_spaces_lowercase_text_reversed_text = no_spaces_lowercase_text[::-1]
+    if no_spaces_lowercase_text == no_spaces_lowercase_text_reversed_text:
+        print(f"The text {text} is palindrome")
+    else:
+        print(f"The text {text} is not palindrome")
+    
+# TODO: Check if the text is a palindrome (ignoring case and spaces)
+
+elif choice == 9:
+    
+    import string
+    clean_text = text.lower().translate(str.maketrans('', '', string.punctuation))
+    words = clean_text.split()   
+    word_freq = {}
+
+    for word in words:
+        if word in word_freq:
+            word_freq[word] += 1
+        else:
+            word_freq[word] = 1
+
+    print(word_freq)
+
+    # TODO: Count the frequency of each word and display the result
+    
+
+else:
+    print("❌ Invalid choice! Please restart the program.")
